@@ -1,23 +1,14 @@
-import { useState } from "react"
+import SingleQuestion from "./SingleQuestion";
 
-const Question = ({ title, info }) => {
-    const [displayInfo, setDisplayInfo] = useState(false)
-  
-    function handleDisplay() {
-      setDisplayInfo(!displayInfo)
-    }
-  
+const Question = ({question}) => {
     return (
-      <article className='border-2 border-black m-1 p-4 '>
-        <div className='flex justify-between'>
-          <h2 className='font-semibold'>{title}</h2>
-          <div className='cursor-pointer' onClick={() => {handleDisplay()}}>{displayInfo ?  "➖" : "➕"}</div>
-        </div>
-        <p>{displayInfo && info}</p>
-      </article>
+        <section className='border-2 border-black mx-auto my-12 bg-white rounded-lg p-5 max-w-screen-md shadow-md'>
+            <div className='text-center text-xl font-bold'>Question</div>
+            {question.map((info) => {
+                return <SingleQuestion key={info.id} {...info} />
+            })}
+        </section>
     )
-  }
-
+}
 
 export default Question;
-  

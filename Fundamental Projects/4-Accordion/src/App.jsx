@@ -8,12 +8,7 @@ const App = () => {
 
   return (
     <main>
-      <section className='border-2 border-black mx-auto my-12 bg-white rounded-lg p-5 max-w-screen-md shadow-md'>
-      <div className='text-center text-xl font-bold'>Question</div>
-        {question.map((info) => {
-          return <Question key={info.id} {...info} />
-        })}
-      </section>
+        <Question question={question} />
     </main>
   )
 }
