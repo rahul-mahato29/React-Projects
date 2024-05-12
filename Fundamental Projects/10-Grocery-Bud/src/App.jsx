@@ -1,5 +1,27 @@
+import { useState } from "react";
+import Form from "./Components/Form";
+import {nanoid} from 'nanoid';
+
 const App = () => {
-  return <h2>Grocery Bud - Starter</h2>;
+
+  const [items, setItems] = useState([])
+  console.log("items : ", items)
+
+  function addItem(val){
+    const newItem = {
+      name: val,
+      completed: false,
+      id: nanoid()
+    }
+
+    setItems([...items, newItem]);
+  }
+
+  return (
+    <main>
+      <Form addItem={addItem}/>
+    </main>
+  )
 };
 
 export default App;
