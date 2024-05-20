@@ -4,17 +4,15 @@ const Form = ({addItem}) => {
     const [inputVal, setInputVal] = useState("");
 
     function handleSubmit(e) {
-        if(!inputVal)
-            alert("input required");
-
-        e.prevenDefault();
+        e.preventDefault();         //helps in preventing from page-refresh
+        if(!inputVal) return;
 
         addItem(inputVal)
         setInputVal('')
     }
 
     return (
-        <form onSubmit={handleSubmit} className="border-2 border-black p-5 m-20 text-center">
+        <form onSubmit={handleSubmit} className="border-2 border-black p-5 m-20 mb-0 text-center">
             <h2 className="text-xl font-semibold m-4">Grocery Bud</h2>
             <div className="m-1">
                 <input
